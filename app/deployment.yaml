@@ -23,29 +23,25 @@ spec:
       containers:
       - name: spring-petclinic
         imagePullPolicy: Always
-        image: quay.io/siamaksade/spring-petclinic:latest
+        image: ghcr.io/chenzhenghan83/argocdnodejspackingdeploy:master
         livenessProbe:
           failureThreshold: 3
           httpGet:
             path: /
-            port: 8080
+            port: 3001
             scheme: HTTP
           initialDelaySeconds: 45
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
         ports:
-        - containerPort: 8080
-          protocol: TCP
-        - containerPort: 8443
-          protocol: TCP
-        - containerPort: 8778
+        - containerPort: 3001
           protocol: TCP
         readinessProbe:
           failureThreshold: 3
           httpGet:
             path: /
-            port: 8080
+            port: 3001
             scheme: HTTP
           initialDelaySeconds: 45
           periodSeconds: 10
